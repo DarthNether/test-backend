@@ -1,0 +1,13 @@
+<h1>Lista de Tareas</h1>
+
+<ul>
+  <% @tareas.each do |tarea| %>
+    <li>
+      <%= link_to tarea.titulo, tarea %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Nueva Tarea", new_tarea_path %>
+
+<p><%= link_to "Generar Api", export_url %></p>

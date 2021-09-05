@@ -1,0 +1,63 @@
+<%= form_with model: tarea, local: true do |form| %>
+  <p>
+    <div class="titulo">
+      <%= form.label :titulo %><br>
+      <%= form.text_field :titulo %><br>
+      <% tarea.errors.full_messages_for(:titulo).each do |message| %>
+        <div>
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+  </p>
+
+  <p>
+    <div class="inicio">
+      <%= form.label 'Fecha de inicio de la tarea' %><br>
+      <%= form.date_select :inicio %>
+      <%= form.label ' | ' %>
+      <%= form.time_select :inicio, :ignore_date => true %><br>
+      <% tarea.errors.full_messages_for(:inicio).each do |message| %>
+        <div>
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+  </p>
+
+  <p>
+    <div class="fin">
+      <%= form.label 'Fecha de finalización de la tarea' %><br>
+      <%= form.date_select :fin %>
+      <%= form.label ' | ' %>
+      <%= form.time_select :fin, :ignore_date => true %>
+      <% @tarea.errors.full_messages_for(:fin).each do |message| %>
+        <div>
+          <br><%= message %>
+        </div>
+      <% end %>
+    </div>
+  </p>
+
+  <p>
+    <div class="email">
+      <%= form.label :email %><br>
+      <%= form.text_field :email %><br>
+      <% @tarea.errors.full_messages_for(:email).each do |message| %>
+        <div>
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+  </p>
+
+  <p>
+    <div class="submit">
+      <%= form.submit  'Crear Tarea'%>
+    </div>
+  </p>
+
+  <p>
+    <%= link_to "Volver al inicio", root_path %>
+  </p>
+<% end %>
