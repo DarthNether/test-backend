@@ -1,0 +1,30 @@
+<h1><%= @tarea.titulo %></h1>
+
+<p>
+  <b>Fecha de inicio de la tarea</b>
+  <br>
+  <%= @tarea.inicio %>
+</p>
+
+<p>
+  <b>Fecha de finalización de la tarea</b>
+  <br>
+  <%= @tarea.fin %>
+</p>
+
+<p>
+  <b>Email</b>
+  <br>
+  <%= @tarea.email %>
+</p>
+
+<ul>
+  <li><%= link_to "Editar tarea", edit_tarea_path(@tarea) %></li>
+  <li><%= link_to "Eliminar tarea", tarea_path(@tarea),
+                  method: :delete,
+                  data: { confirm: "¿Está seguro que desea eliminar la tarea?" } %></li>
+</ul>
+
+<p>
+  <%= link_to "Volver al inicio", root_path %>
+</p>
